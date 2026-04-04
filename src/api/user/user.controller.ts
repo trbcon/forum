@@ -5,18 +5,18 @@ import { UserService } from './user.service';
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
-  @Get(':id')
-  async getUser( @Param('id') userId: string ) {
-    return ;
+  @Get(':username')
+  async getUser( @Param('username') username: string ) {
+    return await this.getUser(username);
   }
 
-  @Get(':id/posts')
-  async getUserPosts( @Param('id') userId: string ) {
-    return ;
+  @Get(':username/posts')
+  async getUserPosts( @Param('username') username: string ) {
+    return await this.getUserPosts(username);
   }
 
-  @Get(':id/likes')
-  async getUserLikes( @Param('id') userId: string ) {
-    return ;
+  @Get(':username/likes')
+  async getUserLikes( @Param('username') username: string ) {
+    return await this.getUserLikes(username);
   }
 }
