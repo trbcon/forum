@@ -65,19 +65,28 @@ export class PostService {
 
     }
 
-    async delete( user, postID ) {
+    async delete( user, postId ) {
         return this.prismaService.post.delete({
             where: {
-                id: postID,
+                id: postId,
             }
         });
     }
 
-    async commentCreate( user, post, dto: CreateCommentDto ) {
+    async commentCreate( user, postId, dto: CreateCommentDto ) {
         const { text } = dto;
 
         const authorName = user.username;
-        const postID = post.id;
+
+        const post = await this.prismaService.post.findUnique({
+            where: {
+                id: postId,
+            }
+        });
+
+        if (!post) throw new NotFoundException('Такого поста не существует');
+
+        const paragraph = post.paragraph;
 
         const comment = await this.prismaService.comment.create({ data: {
             text,
@@ -89,18 +98,25 @@ export class PostService {
             },
             post: {
                 connect: {
-                    id: postID,
+                    id: postId,
                 }
             }
         }});
 
+        this.eventEmitter.emit('comment.new', {
+            text,
+            username: authorName,
+            postName: paragraph,
+            selfName: post.authorName,
+        });
+
         return comment;
     }
 
-    async commentDelete( commentID ) {
+    async commentDelete( commentId ) {
         return this.prismaService.comment.delete({
             where: {
-                id: commentID,
+                id: commentId,
             }
         });
     }

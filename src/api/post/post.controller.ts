@@ -2,7 +2,7 @@ import { Body, Controller, Delete, Param, Post } from '@nestjs/common';
 import { PostService } from './post.service';
 import { Authorization } from 'src/common/decorators/authorization.decorator';
 import { Authorizated } from 'src/common/decorators/authorizated.decorator';
-// import { CreateCommentDto } from './dto/create.comment.dto';
+import { CreateCommentDto } from './dto/create.comment.dto';
 import { CreateDto } from './dto/create.dto';
 
 @Controller('post')
@@ -12,7 +12,7 @@ export class PostController {
   @Authorization()
   @Post('create')
   async create( @Authorizated() user: any, @Body() dto: CreateDto ) {
-    return await this.postService.create(user, dto);
+    return await this.postService.create( user, dto );
   }
 
   @Authorization()
@@ -25,5 +25,11 @@ export class PostController {
   @Post(':id/like')
   async like( @Authorizated() user: any, @Param('id') postID: string ) {
     return await this.postService.toggleLike( user, postID );
+  }
+
+  @Authorization()
+  @Post(':id/comment')
+  async commentCreate( @Authorizated() user: any, @Param('id') postId: string, @Body() dto: CreateCommentDto ) {
+    return await this.postService.commentCreate( user, postId, dto );
   }
 }
