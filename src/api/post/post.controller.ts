@@ -24,6 +24,6 @@ export class PostController {
   @Authorization()
   @Post(':id/like')
   async like( @Authorizated() user: any, @Param('id') postID: string ) {
-    return await this.postService.toggleLike( user.id, postID );
+    return await this.postService.toggleLike( user, postID );
   }
 }

@@ -7,6 +7,6 @@ export class NotificationService {
 
     @OnEvent('post.liked')
     handlePostLikedEvent( payload: any ) {
-        console.log(`${payload.authorId}, твой пост лайкнул ${payload.userId}`);
+        console.log(`${payload.authorId}, твой пост лайкнул ${payload.username}`);
     }
 }

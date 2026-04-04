@@ -7,13 +7,15 @@ import { PrismaModule } from './infra/prisma/prisma.module';
 import { ConfigModule } from '@nestjs/config';
 import { ApiModule } from './api/api.module';
 import { NotificationModule } from './modules/notification/notification.module';
+import { EventEmitterModule } from '@nestjs/event-emitter';
 
 @Module({
   imports: [
     // AuthModule,
     ApiModule,
     PrismaModule, 
-    InfraModule, 
+    InfraModule,
+    EventEmitterModule.forRoot(),
     ConfigModule.forRoot({
       isGlobal: true,
     }), NotificationModule,

@@ -31,7 +31,9 @@ export class PostService {
         return post;
     }
 
-    async toggleLike( userId: string, postId: string ) {
+    async toggleLike( user, postId: string ) {
+        const userId = user.id;
+
         const existLike = await this.prismaService.like.findUnique({
             where: {
                 userId_postId: { userId, postId }
@@ -52,7 +54,7 @@ export class PostService {
 
         this.eventEmitter.emit('post.liked', {
             postId,
-            userId,
+            username: user.username,
             authorId: post.authorName,
         });
 

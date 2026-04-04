@@ -4,7 +4,7 @@ import { PostController } from './post.controller';
 import { InfraModule } from 'src/infra/infra.module';
 
 @Module({
-    imports: [InfraModule], 
+  imports: [InfraModule], 
   controllers: [PostController],
   providers: [PostService],
 })
