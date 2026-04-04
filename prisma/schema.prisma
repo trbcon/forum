@@ -24,6 +24,8 @@ model User {
 
   role UserRole @default(USER)
 
+  likes    Like[]
+
   posts Post[]
   comments Comment[]
 
@@ -41,7 +43,7 @@ model Post {
   paragraph String
   text String
 
-  likes Int
+  likedBy Like[]
 
   comments Comment[]
 
@@ -62,13 +64,22 @@ model Comment {
 
   text String
 
-  likes Int
-
   author User @relation(fields: [authorName], references: [username])
 
   post Post @relation(fields: [postId], references: [id])
 
   @@map("comments")
+}
+
+model Like {
+  id        Int      @id @default(autoincrement())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String
+  post      Post     @relation(fields: [postId], references: [id])
+  postId    String
+  createdAt DateTime @default(now())
+
+  @@unique([userId, postId]) 
 }
 
 enum UserRole {

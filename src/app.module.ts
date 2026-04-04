@@ -6,6 +6,7 @@ import { InfraModule } from './infra/infra.module';
 import { PrismaModule } from './infra/prisma/prisma.module';
 import { ConfigModule } from '@nestjs/config';
 import { ApiModule } from './api/api.module';
+import { NotificationModule } from './modules/notification/notification.module';
 
 @Module({
   imports: [
@@ -15,7 +16,7 @@ import { ApiModule } from './api/api.module';
     InfraModule, 
     ConfigModule.forRoot({
       isGlobal: true,
-    }),
+    }), NotificationModule,
   ],
   controllers: [AppController],
   providers: [AppService],

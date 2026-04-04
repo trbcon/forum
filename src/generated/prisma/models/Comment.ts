@@ -28,12 +28,10 @@ export type AggregateComment = {
 
 export type CommentAvgAggregateOutputType = {
   id: number | null
-  likes: number | null
 }
 
 export type CommentSumAggregateOutputType = {
   id: number | null
-  likes: number | null
 }
 
 export type CommentMinAggregateOutputType = {
@@ -41,7 +39,6 @@ export type CommentMinAggregateOutputType = {
   authorName: string | null
   postId: string | null
   text: string | null
-  likes: number | null
 }
 
 export type CommentMaxAggregateOutputType = {
@@ -49,7 +46,6 @@ export type CommentMaxAggregateOutputType = {
   authorName: string | null
   postId: string | null
   text: string | null
-  likes: number | null
 }
 
 export type CommentCountAggregateOutputType = {
@@ -57,19 +53,16 @@ export type CommentCountAggregateOutputType = {
   authorName: number
   postId: number
   text: number
-  likes: number
   _all: number
 }
 
 
 export type CommentAvgAggregateInputType = {
   id?: true
-  likes?: true
 }
 
 export type CommentSumAggregateInputType = {
   id?: true
-  likes?: true
 }
 
 export type CommentMinAggregateInputType = {
@@ -77,7 +70,6 @@ export type CommentMinAggregateInputType = {
   authorName?: true
   postId?: true
   text?: true
-  likes?: true
 }
 
 export type CommentMaxAggregateInputType = {
@@ -85,7 +77,6 @@ export type CommentMaxAggregateInputType = {
   authorName?: true
   postId?: true
   text?: true
-  likes?: true
 }
 
 export type CommentCountAggregateInputType = {
@@ -93,7 +84,6 @@ export type CommentCountAggregateInputType = {
   authorName?: true
   postId?: true
   text?: true
-  likes?: true
   _all?: true
 }
 
@@ -188,7 +178,6 @@ export type CommentGroupByOutputType = {
   authorName: string
   postId: string
   text: string
-  likes: number
   _count: CommentCountAggregateOutputType | null
   _avg: CommentAvgAggregateOutputType | null
   _sum: CommentSumAggregateOutputType | null
@@ -219,7 +208,6 @@ export type CommentWhereInput = {
   authorName?: Prisma.StringFilter<"Comment"> | string
   postId?: Prisma.StringFilter<"Comment"> | string
   text?: Prisma.StringFilter<"Comment"> | string
-  likes?: Prisma.IntFilter<"Comment"> | number
   author?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   post?: Prisma.XOR<Prisma.PostScalarRelationFilter, Prisma.PostWhereInput>
 }
@@ -229,7 +217,6 @@ export type CommentOrderByWithRelationInput = {
   authorName?: Prisma.SortOrder
   postId?: Prisma.SortOrder
   text?: Prisma.SortOrder
-  likes?: Prisma.SortOrder
   author?: Prisma.UserOrderByWithRelationInput
   post?: Prisma.PostOrderByWithRelationInput
 }
@@ -242,7 +229,6 @@ export type CommentWhereUniqueInput = Prisma.AtLeast<{
   authorName?: Prisma.StringFilter<"Comment"> | string
   postId?: Prisma.StringFilter<"Comment"> | string
   text?: Prisma.StringFilter<"Comment"> | string
-  likes?: Prisma.IntFilter<"Comment"> | number
   author?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   post?: Prisma.XOR<Prisma.PostScalarRelationFilter, Prisma.PostWhereInput>
 }, "id">
@@ -252,7 +238,6 @@ export type CommentOrderByWithAggregationInput = {
   authorName?: Prisma.SortOrder
   postId?: Prisma.SortOrder
   text?: Prisma.SortOrder
-  likes?: Prisma.SortOrder
   _count?: Prisma.CommentCountOrderByAggregateInput
   _avg?: Prisma.CommentAvgOrderByAggregateInput
   _max?: Prisma.CommentMaxOrderByAggregateInput
@@ -268,12 +253,10 @@ export type CommentScalarWhereWithAggregatesInput = {
   authorName?: Prisma.StringWithAggregatesFilter<"Comment"> | string
   postId?: Prisma.StringWithAggregatesFilter<"Comment"> | string
   text?: Prisma.StringWithAggregatesFilter<"Comment"> | string
-  likes?: Prisma.IntWithAggregatesFilter<"Comment"> | number
 }
 
 export type CommentCreateInput = {
   text: string
-  likes: number
   author: Prisma.UserCreateNestedOneWithoutCommentsInput
   post: Prisma.PostCreateNestedOneWithoutCommentsInput
 }
@@ -283,12 +266,10 @@ export type CommentUncheckedCreateInput = {
   authorName: string
   postId: string
   text: string
-  likes: number
 }
 
 export type CommentUpdateInput = {
   text?: Prisma.StringFieldUpdateOperationsInput | string
-  likes?: Prisma.IntFieldUpdateOperationsInput | number
   author?: Prisma.UserUpdateOneRequiredWithoutCommentsNestedInput
   post?: Prisma.PostUpdateOneRequiredWithoutCommentsNestedInput
 }
@@ -298,7 +279,6 @@ export type CommentUncheckedUpdateInput = {
   authorName?: Prisma.StringFieldUpdateOperationsInput | string
   postId?: Prisma.StringFieldUpdateOperationsInput | string
   text?: Prisma.StringFieldUpdateOperationsInput | string
-  likes?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type CommentCreateManyInput = {
@@ -306,12 +286,10 @@ export type CommentCreateManyInput = {
   authorName: string
   postId: string
   text: string
-  likes: number
 }
 
 export type CommentUpdateManyMutationInput = {
   text?: Prisma.StringFieldUpdateOperationsInput | string
-  likes?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type CommentUncheckedUpdateManyInput = {
@@ -319,7 +297,6 @@ export type CommentUncheckedUpdateManyInput = {
   authorName?: Prisma.StringFieldUpdateOperationsInput | string
   postId?: Prisma.StringFieldUpdateOperationsInput | string
   text?: Prisma.StringFieldUpdateOperationsInput | string
-  likes?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type CommentListRelationFilter = {
@@ -337,12 +314,10 @@ export type CommentCountOrderByAggregateInput = {
   authorName?: Prisma.SortOrder
   postId?: Prisma.SortOrder
   text?: Prisma.SortOrder
-  likes?: Prisma.SortOrder
 }
 
 export type CommentAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  likes?: Prisma.SortOrder
 }
 
 export type CommentMaxOrderByAggregateInput = {
@@ -350,7 +325,6 @@ export type CommentMaxOrderByAggregateInput = {
   authorName?: Prisma.SortOrder
   postId?: Prisma.SortOrder
   text?: Prisma.SortOrder
-  likes?: Prisma.SortOrder
 }
 
 export type CommentMinOrderByAggregateInput = {
@@ -358,12 +332,10 @@ export type CommentMinOrderByAggregateInput = {
   authorName?: Prisma.SortOrder
   postId?: Prisma.SortOrder
   text?: Prisma.SortOrder
-  likes?: Prisma.SortOrder
 }
 
 export type CommentSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  likes?: Prisma.SortOrder
 }
 
 export type CommentCreateNestedManyWithoutAuthorInput = {
@@ -450,9 +422,16 @@ export type CommentUncheckedUpdateManyWithoutPostNestedInput = {
   deleteMany?: Prisma.CommentScalarWhereInput | Prisma.CommentScalarWhereInput[]
 }
 
+export type IntFieldUpdateOperationsInput = {
+  set?: number
+  increment?: number
+  decrement?: number
+  multiply?: number
+  divide?: number
+}
+
 export type CommentCreateWithoutAuthorInput = {
   text: string
-  likes: number
   post: Prisma.PostCreateNestedOneWithoutCommentsInput
 }
 
@@ -460,7 +439,6 @@ export type CommentUncheckedCreateWithoutAuthorInput = {
   id?: number
   postId: string
   text: string
-  likes: number
 }
 
 export type CommentCreateOrConnectWithoutAuthorInput = {
@@ -497,12 +475,10 @@ export type CommentScalarWhereInput = {
   authorName?: Prisma.StringFilter<"Comment"> | string
   postId?: Prisma.StringFilter<"Comment"> | string
   text?: Prisma.StringFilter<"Comment"> | string
-  likes?: Prisma.IntFilter<"Comment"> | number
 }
 
 export type CommentCreateWithoutPostInput = {
   text: string
-  likes: number
   author: Prisma.UserCreateNestedOneWithoutCommentsInput
 }
 
@@ -510,7 +486,6 @@ export type CommentUncheckedCreateWithoutPostInput = {
   id?: number
   authorName: string
   text: string
-  likes: number
 }
 
 export type CommentCreateOrConnectWithoutPostInput = {
@@ -543,12 +518,10 @@ export type CommentCreateManyAuthorInput = {
   id?: number
   postId: string
   text: string
-  likes: number
 }
 
 export type CommentUpdateWithoutAuthorInput = {
   text?: Prisma.StringFieldUpdateOperationsInput | string
-  likes?: Prisma.IntFieldUpdateOperationsInput | number
   post?: Prisma.PostUpdateOneRequiredWithoutCommentsNestedInput
 }
 
@@ -556,26 +529,22 @@ export type CommentUncheckedUpdateWithoutAuthorInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   postId?: Prisma.StringFieldUpdateOperationsInput | string
   text?: Prisma.StringFieldUpdateOperationsInput | string
-  likes?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type CommentUncheckedUpdateManyWithoutAuthorInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   postId?: Prisma.StringFieldUpdateOperationsInput | string
   text?: Prisma.StringFieldUpdateOperationsInput | string
-  likes?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type CommentCreateManyPostInput = {
   id?: number
   authorName: string
   text: string
-  likes: number
 }
 
 export type CommentUpdateWithoutPostInput = {
   text?: Prisma.StringFieldUpdateOperationsInput | string
-  likes?: Prisma.IntFieldUpdateOperationsInput | number
   author?: Prisma.UserUpdateOneRequiredWithoutCommentsNestedInput
 }
 
@@ -583,14 +552,12 @@ export type CommentUncheckedUpdateWithoutPostInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   authorName?: Prisma.StringFieldUpdateOperationsInput | string
   text?: Prisma.StringFieldUpdateOperationsInput | string
-  likes?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type CommentUncheckedUpdateManyWithoutPostInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   authorName?: Prisma.StringFieldUpdateOperationsInput | string
   text?: Prisma.StringFieldUpdateOperationsInput | string
-  likes?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 
@@ -600,7 +567,6 @@ export type CommentSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   authorName?: boolean
   postId?: boolean
   text?: boolean
-  likes?: boolean
   author?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   post?: boolean | Prisma.PostDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["comment"]>
@@ -610,7 +576,6 @@ export type CommentSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   authorName?: boolean
   postId?: boolean
   text?: boolean
-  likes?: boolean
   author?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   post?: boolean | Prisma.PostDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["comment"]>
@@ -620,7 +585,6 @@ export type CommentSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   authorName?: boolean
   postId?: boolean
   text?: boolean
-  likes?: boolean
   author?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   post?: boolean | Prisma.PostDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["comment"]>
@@ -630,10 +594,9 @@ export type CommentSelectScalar = {
   authorName?: boolean
   postId?: boolean
   text?: boolean
-  likes?: boolean
 }
 
-export type CommentOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "authorName" | "postId" | "text" | "likes", ExtArgs["result"]["comment"]>
+export type CommentOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "authorName" | "postId" | "text", ExtArgs["result"]["comment"]>
 export type CommentInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   author?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   post?: boolean | Prisma.PostDefaultArgs<ExtArgs>
@@ -658,7 +621,6 @@ export type $CommentPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     authorName: string
     postId: string
     text: string
-    likes: number
   }, ExtArgs["result"]["comment"]>
   composites: {}
 }
@@ -1088,7 +1050,6 @@ export interface CommentFieldRefs {
   readonly authorName: Prisma.FieldRef<"Comment", 'String'>
   readonly postId: Prisma.FieldRef<"Comment", 'String'>
   readonly text: Prisma.FieldRef<"Comment", 'String'>
-  readonly likes: Prisma.FieldRef<"Comment", 'Int'>
 }
     
 
