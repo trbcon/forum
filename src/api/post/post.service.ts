@@ -69,6 +69,7 @@ export class PostService {
         return this.prismaService.post.delete({
             where: {
                 id: postId,
+                authorName: user.username,
             }
         });
     }
@@ -113,7 +114,7 @@ export class PostService {
         return comment;
     }
 
-    async commentDelete( commentId ) {
+    async commentDelete( user, commentId ) {
         return this.prismaService.comment.delete({
             where: {
                 id: commentId,

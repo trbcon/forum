@@ -28,8 +28,15 @@ export class PostController {
   }
 
   @Authorization()
-  @Post(':id/comment')
+  @Post(':id/comment/create')
   async commentCreate( @Authorizated() user: any, @Param('id') postId: string, @Body() dto: CreateCommentDto ) {
     return await this.postService.commentCreate( user, postId, dto );
   }
+
+  @Authorization()
+  @Delete(':id/comment/delete')
+  async commentDelete( @Authorizated() user: any, @Param('id') commentId: string ) {
+    return await this.postService.commentDelete( user, commentId );
+  }
+
 }
